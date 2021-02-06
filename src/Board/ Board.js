@@ -24,6 +24,18 @@ const Board = () => {
     }
   }, [count]);
 
+  const resetBoard = () => {
+    let values = [
+      ["", "", ""],
+      ["", "", ""],
+      ["", "", ""],
+    ];
+    setposition(values);
+    setplayer("X");
+    setcount(0);
+    setWinner("");
+  };
+
   const checkResult = () => {
     if (
       (position[0][0] === "X" &&
@@ -242,6 +254,19 @@ const Board = () => {
         </div>
       </div>
       <h2> {winner}</h2>
+      <button
+        onClick={() => resetBoard()}
+        style={{
+          height: 50,
+          width: 150,
+          borderRadius: 10,
+          fontSize: 30,
+          color: "white",
+          backgroundColor: "green",
+        }}
+      >
+        Reset
+      </button>
     </div>
   );
 };
