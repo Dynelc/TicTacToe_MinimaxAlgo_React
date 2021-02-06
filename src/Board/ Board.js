@@ -13,16 +13,16 @@ const Board = () => {
 
   const [winner, setWinner] = useState("");
 
-  useEffect(() => {
-    if (count > 4) {
-      checkResult();
-    }
-    if (count === 9) {
-      if (winner === "") {
-        setWinner("Game Draw");
-      }
-    }
-  }, [count]);
+  // useEffect(() => {
+  //   if (count > 4) {
+  //     checkResult();
+  //   }
+  //   if (count === 9) {
+  //     if (winner === "") {
+  //       setWinner("Game Draw");
+  //     }
+  //   }
+  // }, [count]);
 
   const resetBoard = () => {
     let values = [
@@ -102,8 +102,22 @@ const Board = () => {
         setposition(array);
       }
 
-      setcount(count + 1);
+      // setcount(count + 1);
+      checkResult();
 
+      let draw = true;
+
+      for (let i = 0; i < position.length; i++) {
+        for (let j = 0; j < 3; j++) {
+          if (position[i][j] === "") {
+            draw = false;
+          }
+        }
+      }
+
+      if (draw === true) {
+        setWinner("Game Drawn");
+      }
       if (player === "X") {
         setplayer("O");
       } else {
