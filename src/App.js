@@ -1,12 +1,12 @@
 import logo from "./logo.svg";
 import "./App.css";
 
-import Board from "./Board/ Board";
+import AI from "./Board/AI";
 
 function App() {
   return (
     <div className="App">
-      <Board></Board>
+      <AI></AI>
     </div>
   );
 }
